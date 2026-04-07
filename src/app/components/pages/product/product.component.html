@@ -1,0 +1,15 @@
+<div class="container pt-5 pb-5">
+  <div class="row row-cols-1 d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card">
+        <img class="image-popup-vertical-fit" src="{{product.image}}"
+             alt="Tea">
+        <div class="card-body">
+          <h5 class="card-title">{{product.price | currency: 'RUB': 'руб.': '1.0-0': 'ru-Ru'}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <a [routerLink]="'/order'" [queryParams]="{product: product.title}"  class="btn btn-primary">Купить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

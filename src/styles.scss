@@ -26,6 +26,19 @@
   transform: none;
 }
 
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+#btn-error {
+  color: red;
+}
+
 
 @media screen and (max-width: 767px) {
   form.w-50 {

@@ -1,0 +1,69 @@
+<div class="container pt-5 pb-5">
+  <h2 class="form-header text-center mb-5">Сделать заказ</h2>
+  <form class="row g-3 mx-auto pb-5  w-50" id="order-form" [formGroup]="orderForm">
+    <div class="col-md-4">
+      <label for="inputName" class="form-label">Имя</label>
+      <input type="text" class="form-control" id="inputName" name="name" formControlName="name">
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <div class="invalid-feedback" *ngIf="name?.errors?.['required']">Укажите имя</div>
+        <div class="invalid-feedback" *ngIf="name?.errors?.['pattern']">Имя может содержать только буквы</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="inputLastName" class="form-label">Фамилия</label>
+      <input type="text" class="form-control" id="inputLastName" name="lastName" formControlName="lastName">
+      <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+        <div class="invalid-feedback" *ngIf="lastName?.errors?.['required']">Укажите фамилию</div>
+        <div class="invalid-feedback" *ngIf="lastName?.errors?.['pattern']">Фамилия может содержать только буквы</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="inputPhone" class="form-label">Телефон</label>
+      <input type="text" class="form-control" id="inputPhone" name="phone" formControlName="phone">
+      <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+        <div class="invalid-feedback" *ngIf="phone?.errors?.['required']">Укажите номер телефона</div>
+        <div class="invalid-feedback" *ngIf="phone?.errors?.['pattern']">Номер должен содержать 11 цифр</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputCountry" class="form-label">Страна</label>
+      <input type="text" class="form-control" id="inputCountry" name="country" formControlName="country">
+      <div class="invalid-feedback" *ngIf="country?.invalid
+      && (country?.dirty || country?.touched) && country?.errors?.['required']">Укажите страну
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputIndex" class="form-label">Индекс</label>
+      <input type="text" class="form-control" id="inputIndex" name="zip" formControlName="zip">
+      <div class="invalid-feedback" *ngIf="zip?.invalid
+      && (zip?.dirty || zip?.touched) && zip?.errors?.['required']">Укажите индекс
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Адрес</label>
+      <input type="text" class="form-control" id="inputAddress" name="address" formControlName="address">
+      <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+        <div class="invalid-feedback" *ngIf="address?.errors?.['required']">Укажите адрес</div>
+        <div class="invalid-feedback" *ngIf="address?.errors?.['pattern']">Можно вводить: буквы, цифры, пробелы, дефис и слеш </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="inputProduct" class="form-label">Товар</label>
+      <input type="text" class="form-control" id="inputProduct" name="product" formControlName="product">
+    </div>
+    <div class="col-12">
+      <label for="inputComment" class="form-label">Комментарий к заказу</label>
+      <input type="text" class="form-control" id="inputComment" name="comment" formControlName="comment">
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" id="create-order"  (click)="createOrder()" [disabled]="isDisabled || orderForm.invalid">
+        Отправить
+      </button>
+      <div class="d-none" id="btn-error">Произошла ошибка. Попробуйте еще раз.</div>
+    </div>
+  </form>
+</div>
+
+<div class="p-3 mt-5 border border-secondary-subtle mb-5 border-secondary w-25 mx-auto rounded d-none" id="hide-block">
+  <h5 class="text-center text-wrap">Спасибо за заказ!</h5>
+</div>
