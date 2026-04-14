@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
-import {OrderService} from "../../../services/order.service";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-order',

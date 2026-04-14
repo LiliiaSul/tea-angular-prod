@@ -1,0 +1,53 @@
+<div class="container pt-5 pb-5">
+  <div>
+    <img class="img-fluid" src="assets/chay-s-apelsinom-sayt-2%201.png" alt="Tea">
+  </div>
+  <h2 class="text-center pt-5 mb-5">Ответы на часто задаваемые вопросы</h2>
+
+  <ngb-accordion [closeOthers]="true" activeIds="static-1" class="custom-accordion w-75 mx-auto">
+    <ngb-panel id="static-1" title="Собираете ли вы подарочные боксы?">
+      <ng-template ngbPanelContent>
+        Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-2" title="Сколько у вас разновидностей чая?">
+      <ng-template ngbPanelContent>
+        В нашем ассортименте представлено более 20 разновидностей чая: от классических черных и зеленых сортов до
+        ароматных травяных и фруктовых смесей.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-3" title="В какой срок осуществляется доставка?">
+      <ng-template ngbPanelContent>
+        Доставка обычно занимает от 1 до 3 рабочих дней в зависимости от вашего региона. После оформления заказа мы
+        свяжемся с вами для уточнения деталей.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-4" title="У вас обновляется ассортимент?">
+      <ng-template ngbPanelContent>
+        Да, мы регулярно обновляем ассортимент, добавляем новые вкусы и сезонные коллекции, чтобы вы всегда могли
+        попробовать что-то новое.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-5" title="Какого объема у вас пачки чая?">
+      <ng-template ngbPanelContent>
+        У нас представлены упаковки разного объема: 50 г, 100 г и 200 г. Для некоторых позиций также доступны
+        подарочные наборы.
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+
+  <ng-template #popup let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title w-100 text-center fs-5">Посмотрите наши чайные коллекции</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body d-flex justify-content-center">
+      <button type="button" class="btn btn-primary" [routerLink]="'/products'" (click)="modal.close()">Смотреть</button>
+    </div>
+  </ng-template>
+</div>
+
+
+
+

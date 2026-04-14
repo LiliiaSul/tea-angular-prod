@@ -1,13 +1,18 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject, OnDestroy, TemplateRef, ViewChild} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
-declare var bootstrap: any;
+import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
+
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnDestroy, AfterViewInit {
+  @ViewChild('popup')
+  popup!: TemplateRef<ElementRef>;
+
+  private modalService = inject(NgbModal);
   public observable: Observable<boolean>;
   private subscription: Subscription | null = null;
 
@@ -19,15 +24,14 @@ export class MainComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
+
+  ngAfterViewInit(): void {
     this.subscription = this.observable
       .subscribe(
         {
           next: (param) => {
-            const popUp = document.getElementById('popup');
-            if (popUp && param == true) {
-              const modal = new bootstrap.Modal(popUp);
-              modal.show();
+            if (param == true) {
+              this.modalService.open(this.popup);
             }
           },
           error: (error: string) => {
@@ -35,6 +39,7 @@ export class MainComponent implements OnInit, OnDestroy {
           }
         })
   }
+
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();

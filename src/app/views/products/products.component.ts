@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductType} from "../../../types/product.type";
-import {ProductService} from "../../../services/product.service";
 import {Router} from "@angular/router";
+import {ProductService} from "../../services/product.service";
 
 const defaultHeader = 'Наши чайные коллекции';
 
