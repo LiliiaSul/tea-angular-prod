@@ -8,6 +8,7 @@ import {ProductService} from "../../../services/product.service";
 })
 export class HeaderComponent implements OnInit {
   query: string = '';
+  public isMenuCollapsed = true;
 
   constructor(private productService: ProductService) { }
 

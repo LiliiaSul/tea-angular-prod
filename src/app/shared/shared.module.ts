@@ -6,6 +6,7 @@ import {HeaderComponent} from "./components/header/header.component";
 import {ProductComponent} from "./components/product/product.component";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {NgbCollapseModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     SharedRoutingModule,
     FormsModule,
+    NgbCollapseModule,
     RouterModule
   ],
   exports: [
